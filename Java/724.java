@@ -6,14 +6,12 @@ class Solution {
             leftSum.put(index, sum);
             sum += nums[index];
         }
-        sum = 0;
-        int retIndex = -1;
-        for(int index = nums.length - 1; index >= 0; --index) {
+        for(int index = 0; index < nums.length; ++index) {
+            sum -= nums[index];
             if(leftSum.get(index) == sum) {
-                retIndex = index;
+                return index;
             }
-            sum += nums[index];
         }
-        return retIndex;
+        return -1;
     }
 }
